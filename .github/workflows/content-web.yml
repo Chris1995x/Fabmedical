@@ -23,7 +23,7 @@ env:
   containerRegistryName: 'acr260426'
   containerRegistry: 'acr260426.azurecr.io'
   dockerfilePath: './content-web'
-  tag: '${{ github.run_id }}'
+  tag: '${{ github.run_id  }}'
 
 # Jobs define the actions that take place when code is pushed to the master branch
 jobs:
@@ -49,7 +49,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
           context: ${{ env.dockerfilePath }}
-          file: "${{env.dockerfilePath}}/Dockerfile"
+          file: "${{ env.dockerfilePath }}/Dockerfile"
           pull: true
           push: true
           tags: |
